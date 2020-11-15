@@ -1,4 +1,6 @@
-﻿namespace XmlParser
+﻿using System;
+
+namespace XmlParser
 {
     partial class mainForm
     {
@@ -34,21 +36,17 @@
             this.MaterialCheckBox = new System.Windows.Forms.CheckBox();
             this.TravelCheckBox = new System.Windows.Forms.CheckBox();
             this.WheelSizeCheckBox = new System.Windows.Forms.CheckBox();
-            this.WeightCheckBox = new System.Windows.Forms.CheckBox();
-            this.PriceCheckBox = new System.Windows.Forms.CheckBox();
             this.BrandComboBox = new System.Windows.Forms.ComboBox();
             this.ColourComboBox = new System.Windows.Forms.ComboBox();
             this.SizeComboBox = new System.Windows.Forms.ComboBox();
             this.MaterialComboBox = new System.Windows.Forms.ComboBox();
             this.TravelComboBox = new System.Windows.Forms.ComboBox();
             this.WheelSizeComboBox = new System.Windows.Forms.ComboBox();
-            this.WeightComboBox = new System.Windows.Forms.ComboBox();
-            this.PriceComboBox = new System.Windows.Forms.ComboBox();
             this.SaxRadioButton = new System.Windows.Forms.RadioButton();
             this.SearchButton = new System.Windows.Forms.Button();
             this.ClearButton = new System.Windows.Forms.Button();
             this.HtmBbutton = new System.Windows.Forms.Button();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.richTextBox = new System.Windows.Forms.RichTextBox();
             this.MainMenuStrip = new System.Windows.Forms.MenuStrip();
             this.FileMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.OpenFileMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -117,26 +115,6 @@
             this.WheelSizeCheckBox.Text = "Wheelsize";
             this.WheelSizeCheckBox.UseVisualStyleBackColor = true;
             // 
-            // WeightCheckBox
-            // 
-            this.WeightCheckBox.AutoSize = true;
-            this.WeightCheckBox.Location = new System.Drawing.Point(12, 226);
-            this.WeightCheckBox.Name = "WeightCheckBox";
-            this.WeightCheckBox.Size = new System.Drawing.Size(78, 24);
-            this.WeightCheckBox.TabIndex = 6;
-            this.WeightCheckBox.Text = "Weight";
-            this.WeightCheckBox.UseVisualStyleBackColor = true;
-            // 
-            // PriceCheckBox
-            // 
-            this.PriceCheckBox.AutoSize = true;
-            this.PriceCheckBox.Location = new System.Drawing.Point(12, 257);
-            this.PriceCheckBox.Name = "PriceCheckBox";
-            this.PriceCheckBox.Size = new System.Drawing.Size(63, 24);
-            this.PriceCheckBox.TabIndex = 7;
-            this.PriceCheckBox.Text = "Price";
-            this.PriceCheckBox.UseVisualStyleBackColor = true;
-            // 
             // BrandComboBox
             // 
             this.BrandComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -191,40 +169,19 @@
             this.WheelSizeComboBox.Size = new System.Drawing.Size(151, 28);
             this.WheelSizeComboBox.TabIndex = 13;
             // 
-            // WeightComboBox
-            // 
-            this.WeightComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.WeightComboBox.FormattingEnabled = true;
-            this.WeightComboBox.Location = new System.Drawing.Point(146, 226);
-            this.WeightComboBox.Name = "WeightComboBox";
-            this.WeightComboBox.Size = new System.Drawing.Size(151, 28);
-            this.WeightComboBox.TabIndex = 14;
-            // 
-            // PriceComboBox
-            // 
-            this.PriceComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.PriceComboBox.FormattingEnabled = true;
-            this.PriceComboBox.Location = new System.Drawing.Point(146, 257);
-            this.PriceComboBox.Name = "PriceComboBox";
-            this.PriceComboBox.Size = new System.Drawing.Size(151, 28);
-            this.PriceComboBox.TabIndex = 15;
-            // 
             // SaxRadioButton
             // 
             this.SaxRadioButton.AutoSize = true;
-            this.SaxRadioButton.Checked = true;
-            this.SaxRadioButton.Location = new System.Drawing.Point(240, 307);
+            this.SaxRadioButton.Location = new System.Drawing.Point(239, 244);
             this.SaxRadioButton.Name = "SaxRadioButton";
             this.SaxRadioButton.Size = new System.Drawing.Size(57, 24);
             this.SaxRadioButton.TabIndex = 18;
-            this.SaxRadioButton.TabStop = true;
             this.SaxRadioButton.Text = "SAX";
             this.SaxRadioButton.UseVisualStyleBackColor = true;
-            this.SaxRadioButton.CheckedChanged += new System.EventHandler(this.SaxRadioButton_CheckedChanged);
             // 
             // SearchButton
             // 
-            this.SearchButton.Location = new System.Drawing.Point(13, 337);
+            this.SearchButton.Location = new System.Drawing.Point(12, 274);
             this.SearchButton.Name = "SearchButton";
             this.SearchButton.Size = new System.Drawing.Size(284, 29);
             this.SearchButton.TabIndex = 19;
@@ -234,16 +191,17 @@
             // 
             // ClearButton
             // 
-            this.ClearButton.Location = new System.Drawing.Point(12, 386);
+            this.ClearButton.Location = new System.Drawing.Point(11, 323);
             this.ClearButton.Name = "ClearButton";
             this.ClearButton.Size = new System.Drawing.Size(137, 29);
             this.ClearButton.TabIndex = 20;
             this.ClearButton.Text = "Clear";
             this.ClearButton.UseVisualStyleBackColor = true;
+            this.ClearButton.Click += new System.EventHandler(this.ClearButton_Click);
             // 
             // HtmBbutton
             // 
-            this.HtmBbutton.Location = new System.Drawing.Point(160, 386);
+            this.HtmBbutton.Location = new System.Drawing.Point(159, 323);
             this.HtmBbutton.Name = "HtmBbutton";
             this.HtmBbutton.Size = new System.Drawing.Size(137, 29);
             this.HtmBbutton.TabIndex = 21;
@@ -251,13 +209,13 @@
             this.HtmBbutton.UseVisualStyleBackColor = true;
             this.HtmBbutton.Click += new System.EventHandler(this.HtmBbutton_Click);
             // 
-            // richTextBox1
+            // richTextBox
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(312, 40);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(448, 374);
-            this.richTextBox1.TabIndex = 22;
-            this.richTextBox1.Text = "";
+            this.richTextBox.Location = new System.Drawing.Point(312, 40);
+            this.richTextBox.Name = "richTextBox";
+            this.richTextBox.Size = new System.Drawing.Size(448, 374);
+            this.richTextBox.TabIndex = 22;
+            this.richTextBox.Text = "";
             // 
             // MainMenuStrip
             // 
@@ -289,24 +247,22 @@
             // LinqRadioButton
             // 
             this.LinqRadioButton.AutoSize = true;
-            this.LinqRadioButton.Location = new System.Drawing.Point(13, 307);
+            this.LinqRadioButton.Location = new System.Drawing.Point(12, 244);
             this.LinqRadioButton.Name = "LinqRadioButton";
             this.LinqRadioButton.Size = new System.Drawing.Size(63, 24);
             this.LinqRadioButton.TabIndex = 16;
             this.LinqRadioButton.Text = "LINQ";
             this.LinqRadioButton.UseVisualStyleBackColor = true;
-            this.LinqRadioButton.CheckedChanged += new System.EventHandler(this.LinqRadioButton_CheckedChanged);
             // 
             // DomRadioButton
             // 
             this.DomRadioButton.AutoSize = true;
-            this.DomRadioButton.Location = new System.Drawing.Point(114, 307);
+            this.DomRadioButton.Location = new System.Drawing.Point(113, 244);
             this.DomRadioButton.Name = "DomRadioButton";
             this.DomRadioButton.Size = new System.Drawing.Size(65, 24);
             this.DomRadioButton.TabIndex = 17;
             this.DomRadioButton.Text = "DOM";
             this.DomRadioButton.UseVisualStyleBackColor = true;
-            this.DomRadioButton.CheckedChanged += new System.EventHandler(this.DomRadioButton_CheckedChanged);
             // 
             // mainForm
             // 
@@ -315,21 +271,17 @@
             this.ClientSize = new System.Drawing.Size(778, 456);
             this.Controls.Add(this.LinqRadioButton);
             this.Controls.Add(this.DomRadioButton);
-            this.Controls.Add(this.richTextBox1);
+            this.Controls.Add(this.richTextBox);
             this.Controls.Add(this.HtmBbutton);
             this.Controls.Add(this.ClearButton);
             this.Controls.Add(this.SearchButton);
             this.Controls.Add(this.SaxRadioButton);
-            this.Controls.Add(this.PriceComboBox);
-            this.Controls.Add(this.WeightComboBox);
             this.Controls.Add(this.WheelSizeComboBox);
             this.Controls.Add(this.TravelComboBox);
             this.Controls.Add(this.MaterialComboBox);
             this.Controls.Add(this.SizeComboBox);
             this.Controls.Add(this.ColourComboBox);
             this.Controls.Add(this.BrandComboBox);
-            this.Controls.Add(this.PriceCheckBox);
-            this.Controls.Add(this.WeightCheckBox);
             this.Controls.Add(this.WheelSizeCheckBox);
             this.Controls.Add(this.TravelCheckBox);
             this.Controls.Add(this.MaterialCheckBox);
@@ -346,6 +298,7 @@
 
         }
 
+
         #endregion
 
         private System.Windows.Forms.CheckBox BrandCheckBox;
@@ -354,22 +307,18 @@
         private System.Windows.Forms.CheckBox MaterialCheckBox;
         private System.Windows.Forms.CheckBox TravelCheckBox;
         private System.Windows.Forms.CheckBox WheelSizeCheckBox;
-        private System.Windows.Forms.CheckBox WeightCheckBox;
-        private System.Windows.Forms.CheckBox PriceCheckBox;
         private System.Windows.Forms.ComboBox BrandComboBox;
         private System.Windows.Forms.ComboBox ColourComboBox;
         private System.Windows.Forms.ComboBox SizeComboBox;
         private System.Windows.Forms.ComboBox MaterialComboBox;
         private System.Windows.Forms.ComboBox TravelComboBox;
         private System.Windows.Forms.ComboBox WheelSizeComboBox;
-        private System.Windows.Forms.ComboBox WeightComboBox;
-        private System.Windows.Forms.ComboBox PriceComboBox;
         private System.Windows.Forms.RadioButton SaxRadioButton;
         private System.Windows.Forms.Button SearchButton;
         private System.Windows.Forms.Button ClearButton;
         private System.Windows.Forms.Button HtmBbutton;
-        private System.Windows.Forms.RichTextBox richTextBox1;
-        private System.Windows.Forms.MenuStrip MainMenuStrip;
+        private System.Windows.Forms.RichTextBox richTextBox;
+        private new System.Windows.Forms.MenuStrip MainMenuStrip;
         private System.Windows.Forms.ToolStripMenuItem FileMenuItem;
         private System.Windows.Forms.ToolStripMenuItem OpenFileMenuItem;
         private System.Windows.Forms.RadioButton LinqRadioButton;

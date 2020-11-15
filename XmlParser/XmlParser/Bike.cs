@@ -2,14 +2,6 @@
 {
     public class Bike
     {
-        string brand;
-        string size;
-        string material;
-        string colour;
-        int travel;
-        double wheelSize;
-        double weight;
-        double price;
 
         public Bike()
         {
@@ -18,35 +10,34 @@
         public Bike(string brand, string size, string material, string colour,
             int travel, double wheelSize, double weight, double price)
         {
-            this.brand = brand;
-            this.size = size;
-            this.material = material;
-            this.colour = colour;
-            this.travel = travel;
-            this.wheelSize = wheelSize;
-            this.weight = weight;
-            this.price = price;
+            this.Brand = brand;
+            this.Size = size;
+            this.Material = material;
+            this.Colour = colour;
+            this.Travel = travel;
+            this.WheelSize = wheelSize;
+            this.Weight = weight;
+            this.Price = price;
         }
 
-        public string Brand { get => brand; set => brand = value; }
-        public string Size { get => size; set => size = value; }
-        public string Material { get => material; set => material = value; }
-        public string Colour { get => colour; set => colour = value; }
-        public int Travel { get => travel; set => travel = value; }
-        public double WheelSize { get => wheelSize; set => wheelSize = value; }
-        public double Weight { get => weight; set => weight = value; }
-        public double Price { get => price; set => price = value; }
+        public string Brand { get; set; }
+        public string Size { get; set; }
+        public string Material { get; set; }
+        public string Colour { get; set; }
+        public int Travel { get; set; }
+        public double WheelSize { get; set; }
+        public double Weight { get; set; }
+        public double Price { get; set; }
 
-        public bool SatisfyFilter(Bike filter)
+        public override string ToString()
         {
-            return (price <= filter.price || filter.price == 0)
-                && (brand == filter.brand || filter.brand == "")
-                && (size.Equals(filter.size) || filter.size == "")
-                && (material == filter.material || filter.material == "")
-                && (colour == filter.colour || filter.colour == "")
-                && (travel == filter.travel || filter.travel == 0)
-                && (wheelSize == filter.wheelSize || filter.wheelSize == 0)
-                && (weight == filter.weight || filter.weight == 0);
+            return $"Brand: {Brand}\n"
+                + $"Size: {Size}\n"
+                + $"Material: {Material}\n"
+                + $"Colour: {Colour}\n"
+                + $"Travel: {Travel}\n"
+                + $"Wheelsize: {WheelSize}\n"
+                + "~~~~~~~~~~~~~~~~~~~~~~~~~\n";
         }
     }
 }
