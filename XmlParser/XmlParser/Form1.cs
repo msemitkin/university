@@ -49,7 +49,17 @@ namespace XmlParser
 
         private void LoadFilters(string path)
         {
-            var doc = XDocument.Load(path);
+            XDocument doc = new XDocument();
+            try
+            {
+                doc = XDocument.Load(path);
+            }
+            catch (XmlException)
+            {
+                MessageBox.Show("Invalid XML file", "Invalid XML", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
             var bikes = from obj in doc.Element("bikes").Elements("bike")
                         select new Bike
                         {

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+-<bikes>
+
+  <bikeSilver" material="Carbon" size="XL" brand="Radon"> </bike>
+
+  <bike wheelsize="27,5" travel="200" colour="Red" material="Carbon" size="M" brand="Mondraker"> </bike>
+
+  <bike wheelsize="29" travel="160" colour="Green" material="Carbon" size="S" brand="Santa Cruz"> </bike>
+
+  <bike wheelsize="29" travel="160" colour="Orange" material="Aluminium" size="M" brand="Mondraker"> </bike>
+
+  <bike wheelsize="29" travel="160" colour="Yellow" material="Carbon" size="M" brand="Santa Cruz"> </bike>
+
+  <bike wheelsize="29" travel="100" colour="Black" material="Carbon" size="S" brand="Radon"> </bike>
+
+  <bike wheelsize="29" travel="80" colour="Black" material="Steel" size="XL" brand="Breezer"> </bike>
+
+  <bike wheelsize="26" travel="100" colour="Blue" material="Aluminium" size="L" brand="Centurion"> </bike>
+
+  <bike wheelsize="26" travel="100" colour="Orange" material="Aluminium" size="XS" brand="Focus"> </bike>
+
+  <bike wheelsize="27,5" travel="140" colour="Blue" material="Carbon" size="M" brand="Focus"> </bike>
+
+</bikes>
