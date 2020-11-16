@@ -5,9 +5,9 @@ using System.Xml;
 
 namespace XmlParser
 {
-    class SaxStrategy : SearchStrategy
+    class SaxStrategy : ISearchStrategy
     {
-        public override List<Bike> Search(string path, BikeFilter filter)
+        public List<Bike> Search(string path, BikeFilter filter)
         {
             List<Bike> foundBikes = new List<Bike>();
             using (XmlReader xmlReader = XmlReader.Create(path))

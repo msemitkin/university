@@ -6,9 +6,9 @@ using System.Xml;
 
 namespace XmlParser
 {
-    class DomStrategy : SearchStrategy
+    class DomStrategy : ISearchStrategy
     {
-        public override List<Bike> Search(string path, BikeFilter filter)
+        public List<Bike> Search(string path, BikeFilter filter)
         {
             XmlDocument doc = new XmlDocument();
             doc.Load(path);

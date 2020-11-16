@@ -86,7 +86,7 @@ namespace XmlParser
                 LoadFilters(path);
             }
         }
-        private string GetResult(BikeFilter filter, SearchStrategy searchStrategy)
+        private string GetResult(BikeFilter filter, ISearchStrategy searchStrategy)
         {
             List<Bike> foundBikes = searchStrategy.Search(path, filter);
 
@@ -132,17 +132,17 @@ namespace XmlParser
 
             if (LinqRadioButton.Checked == true)
             {
-                SearchStrategy strategy = new LinqStrategy();
+                ISearchStrategy strategy = new LinqStrategy();
                 richTextBox.Text = GetResult(filter, strategy);
             }
             else if (DomRadioButton.Checked == true)
             {
-                SearchStrategy strategy = new DomStrategy();
+                ISearchStrategy strategy = new DomStrategy();
                 richTextBox.Text = GetResult(filter, strategy);
             }
             else if (SaxRadioButton.Checked == true)
             {
-                SearchStrategy strategy = new SaxStrategy();
+                ISearchStrategy strategy = new SaxStrategy();
                 richTextBox.Text = GetResult(filter, strategy);
             }
             else

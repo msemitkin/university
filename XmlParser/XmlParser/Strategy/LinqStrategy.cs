@@ -6,9 +6,9 @@ using System.Xml.Linq;
 
 namespace XmlParser
 {
-    public class LinqStrategy : SearchStrategy
+    public class LinqStrategy : ISearchStrategy
     {
-        public override List<Bike> Search(string path, BikeFilter filter)
+        public List<Bike> Search(string path, BikeFilter filter)
         {
             var doc = XDocument.Load(path);
             var foundBikes = from obj in doc.Element("bikes").Elements("bike")
